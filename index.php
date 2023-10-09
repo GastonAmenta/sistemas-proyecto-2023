@@ -1,1 +1,1 @@
-<?php include "controllers/home.php" ?>
+<?php header('location: controllers/home.php'); ?>
