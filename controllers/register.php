@@ -24,15 +24,15 @@ if (!empty($_POST)){
                     $rowLogin = mysqli_fetch_array($resLogin, MYSQLI_ASSOC);
                 
                     session_start();
-                
-                
+                                
                     $_SESSION["user"] = $rowLogin;
-                   // print_r($_SESSION["user"]);
+
                     header('Location: home.php');
                     }
                 }                        
             }
         }
+        
 $page = "Inicio";
 $section = "register";
 require_once "../views/layout.php";

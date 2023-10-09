@@ -1,16 +1,13 @@
 <div class="form_container">
-    <form class="form_container" action="../controllers/login.php" method="POST">
-        <div class="div-login_inputs">
-            <input type="text" name="dni" placeholder="Ingrese su DNI"></input> 
-        </div>        
+    <form class="form_container" action="../controllers/login.php" method="POST">       
        <div class="div-login_inputs">
-            <input type="email" name="email" placeholder="Ingrese su email"></input> 
+            <input name="identifier" placeholder="Email o Username"></input> 
         </div>
         <div class="div-login_inputs">
             <input type="password" name="clave" placeholder="Ingrese su contraseña"></input> 
         </div>
         <div class="div-login_inputs">
-            <input type="submit" class="btn-login_form"  value="Iniciar Sesion" ></input> 
+            <button>Iniciar Sesion</button> 
         </div>
     </form>
 </div>

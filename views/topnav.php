@@ -4,27 +4,24 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand" href="../controllers/home.php">Anastasia</a>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">         
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            
+            <?php if ($section != "login" && !isset($_SESSION['user'])) { ?>            
+                <li class="nav-item active">
+                    <a class="nav-link" href="../controllers/login.php">Iniciar Sesion</a>
+                </li>
+            <?php } ?>
 
-                <?php 
-                    if($section != "login"){
-                        ?>
-                        
-                        <li class="nav-item active">
-                            <a class="nav-link" href="../controllers/login.php">login</a>
-                        </li>
+            <?php if (!isset($_SESSION['user'])) { ?>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../controllers/register.php">Registro</a>
+                </li>
+            <?php } else { ?>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../controllers/logout.php">Cerrar Sesion</a>
+                </li>
+            <?php } ?>
 
-                    <?php } ?>             
-                    
-                
-
-                
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Registro</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Cerrar sesion</a>
-            </li>        
         </ul>
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
