@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2023 a las 19:17:19
+-- Tiempo de generación: 09-10-2023 a las 19:07:43
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -75,6 +75,25 @@ CREATE TABLE `productos` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `rol` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id`, `rol`) VALUES
+(1, 'usuario'),
+(2, 'admin');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -83,7 +102,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(30) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `nombre_usuario` varchar(30) NOT NULL,
-  `rol` varchar(10) NOT NULL DEFAULT 'usuario',
+  `rol_id` varchar(10) NOT NULL DEFAULT 'usuario',
   `email` varchar(100) NOT NULL,
   `clave` varchar(128) NOT NULL,
   `fecha_nac` datetime(5) NOT NULL,
@@ -115,6 +134,12 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -141,6 +166,12 @@ ALTER TABLE `pedidos`
 --
 ALTER TABLE `productos`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
