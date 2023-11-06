@@ -5,8 +5,8 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand" href="../controllers/home.php">Anastasia</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            
-            <?php if ($section != "login" && !isset($_SESSION['user'])) { ?>            
+
+            <?php if ($section != "login" && !isset($_SESSION['user'])) { ?>
                 <li class="nav-item active">
                     <a class="nav-link" href="../controllers/login.php">Iniciar Sesion</a>
                 </li>
@@ -18,10 +18,12 @@
                 </li>
             <?php } else { ?>
                 <li class="nav-item active">
+                    <a class="nav-link" href="#">Bienvenido <?php echo $_SESSION['user']['nombre_usuario'] ?></a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="../controllers/logout.php">Cerrar Sesion</a>
                 </li>
             <?php } ?>
-
         </ul>
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
