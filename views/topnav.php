@@ -20,9 +20,15 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Bienvenido <?php echo $_SESSION['user']['nombre_usuario'] ?></a>
                 </li>
+                <?php if ($_SESSION['user']['rol_id'] == 2) { ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../controllers/administracion.php">Administracion</a>
+                    </li>
+                <?php  } ?>
                 <li class="nav-item active">
                     <a class="nav-link" href="../controllers/logout.php">Cerrar Sesion</a>
                 </li>
+
             <?php } ?>
         </ul>
         <form class="form-inline">
