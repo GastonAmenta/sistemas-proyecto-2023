@@ -30,5 +30,3 @@ $messege = [
 
 return print_r(json_encode($messege));
 ?>
-
-?>

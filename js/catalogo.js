@@ -26,16 +26,54 @@ $(document).ready(function () {
                                     <div id="precio" ><H4>$`+ (r.data[i - 1]["precio"]) + `</H4></div>
                                     <div id="talle" ><H4>`+ (r.data[i - 1]["talle"]) + `</H4></div>
                                     <div class="stock"><H4>STOCK : `+ (r.data[i - 1]["stock"]) + `</H4></div>
+                                    <div class="div_comprar"> <button id="` + (r.data[i-1]["id"]) + `" class="btn_comprar">COMPRAR</button> </div>
                                 </div>        
                             <div class="img-product" id="img-product-i-1" ><img src="` + img_addres + `" alt="`+ (img_product_addres) + `"></div>
                         </div>`;
                     div_container_products.append(html);
                 }                    
+                var colorActual = 0;
+
+                $('.btn_comprar').click(function() {
+
+                    if(colorActual === 0){
+                        $(this).css('background-color', '#e74c3c');                    
+                        colorActual = 1;
+                        $(this).empty();
+                        $(this).append("CANCELAR");                        
+                        ordenCatalogo($(this).attr('id'),colorActual);
+                    }else{
+                        $(this).css('background-color', '#04AA6D');                    
+                        colorActual = 0;
+                        $(this).empty();
+                        $(this).append("COMPRAR");
+                    }
+
+                    
+                });
     
             } else {
                 alert(r.message);
                 location.reload();
             }
         }
-    });
-    });
+    }); 
+
+    function ordenCatalogo (id, flag) {
+        $.ajax({
+            type: 'POST',
+            data: {id: id, flag: flag},
+            url: 'api/orden_comptra.php',                            
+            dataType: 'JSON',
+            success: function (r) {
+                if (r.messege == 'Exito') {            
+
+                } else {
+                    alert(r.message);
+                    location.reload();
+                }
+            }
+        });
+    }
+});
+
