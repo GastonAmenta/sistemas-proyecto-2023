@@ -16,7 +16,7 @@
         <div class="hero-content">
             <h1>Bienvenido a Tienda Anastasia</h1>
             <p>Encuentra la mejor selección de ropa y accesorios.</p>
-            <a href="#" class="btn-shop-now">Comprar ahora</a>
+            <a href="../controllers/catalogo.php" class="btn-shop-now">Comprar ahora</a>
         </div>
     </section>
 
