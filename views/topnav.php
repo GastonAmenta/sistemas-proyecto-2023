@@ -3,7 +3,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="">Anastasia</a>
+        <a class="navbar-brand" href="../controllers/home.php">Anastasia</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
             <?php if ($section != "login" && !isset($_SESSION['user'])) { ?>

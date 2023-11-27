@@ -172,6 +172,8 @@ footer {
 
 .img-product img {
     width: 90%;
+    height: 95%;
+    margin-bottom: 7px;
 }
 
 .data-product {
