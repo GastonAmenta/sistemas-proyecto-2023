@@ -136,6 +136,44 @@ footer {
     border-radius: 4px;
     border-width: 1px;
  }
-.btn-admin{
+.btn-admin {
     background-color:rgb(117, 228, 66);
+}
+
+.container-allproducts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;    
+
+    justify-content: center;
+    align-items: center;
+}
+
+.container-products {
+    position: relative;
+    border: 1px solid black;
+    width: 20%;
+    height: 40rem;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.img-product {
+    height: 70%;
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;   
+}
+
+.img-product img {
+    width: 90%;
+}
+
+.data-product {
+    margin-left: 15px;
 }

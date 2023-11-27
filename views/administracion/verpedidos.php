@@ -21,8 +21,6 @@
             </tr>
             <?php foreach ($rowPedidos as $pedidos) { ?>
                 <tr>
-
-
                     <td> <?php echo $pedidos['usuario_nombre'] ?></td>
                     <td> <?php echo $pedidos['usuario_apellido'] ?></td>
                     <td> <?php echo $pedidos['usuario_email'] ?></td>
