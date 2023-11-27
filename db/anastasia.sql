@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2023 a las 21:45:58
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Tiempo de generación: 27-11-2023 a las 17:31:58
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nombre`) VALUES
+(1, 'Vestidos'),
+(2, 'Sweaters'),
+(3, 'Pantalones'),
+(4, 'Blusas'),
+(5, 'Remeras');
 
 -- --------------------------------------------------------
 
@@ -50,15 +61,18 @@ CREATE TABLE `pedidos` (
   `fecha_retiro` datetime DEFAULT NULL,
   `fecha_alta` datetime NOT NULL DEFAULT current_timestamp(),
   `fecha_baja` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `pedidos`
 --
 
 INSERT INTO `pedidos` (`id`, `usuario_nombre`, `usuario_apellido`, `usuario_email`, `usuario_direccion`, `producto`, `fecha_despacho`, `fecha_llegada`, `fecha_retiro`, `fecha_alta`, `fecha_baja`) VALUES
-(1, 'gaston', 'amenta', 'gaston@gmail.com', 'jujuy 255', 'no se', '2023-11-26 20:19:10', '2023-11-29 16:19:10', '2023-11-26 17:41:48', '2023-11-26 16:19:44', NULL),
-(2, 'gaston', 'amenta', 'gaston@gmail.com', 'jujuy 255', 'jajaja', '2023-11-26 20:19:59', '2023-11-28 16:20:00', '2023-11-26 17:41:19', '2023-11-26 16:21:03', NULL);
+(1, 'gaston', 'amenta', 'gaston@gmail.com', 'jujuy 255', 'Sweater', '2023-11-26 20:19:10', '2023-11-29 16:19:10', NULL, '2023-11-26 16:19:44', NULL),
+(2, 'gaston', 'amenta', 'gaston@gmail.com', 'jujuy 255', 'Vestido', '2023-11-26 20:19:59', '2023-11-28 16:20:00', NULL, '2023-11-26 16:21:03', NULL),
+(3, 'sandra', 'fernandez', 'sandra120@gmail.com', 'rivadavia 4500', 'Vestido', '2023-11-27 17:25:53', '2023-11-29 13:25:53', NULL, '2023-11-27 13:26:25', NULL),
+(4, 'Maria', 'Diaz', 'mariadiaz@hotmail.com', 'Yatay 982', 'Blusa', '2023-11-27 17:26:39', '2023-12-01 13:26:39', NULL, '2023-11-27 13:28:50', NULL),
+(5, 'Azul', 'Benitez', 'benitezzazul@outlook.es', 'Estados Unidos 1203', 'Pantalon', '2023-11-27 17:26:39', '2023-12-04 13:26:39', NULL, '2023-11-27 13:28:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,26 +90,18 @@ CREATE TABLE `productos` (
   `stock` int(10) NOT NULL,
   `fecha_alta` datetime NOT NULL DEFAULT current_timestamp(),
   `fecha_baja` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`, `talle`, `imagen_1`, `stock`, `fecha_alta`, `fecha_baja`) VALUES
-(1, 'test', 'test', 200, 'xl', NULL, 20, '2023-11-26 14:40:58', NULL),
-(2, 'test23', 'fjasdio', 123, 'hola', NULL, 124, '2023-11-26 15:00:11', NULL),
-(3, 'test23', 'fjasdio', 123, 'hola', NULL, 124, '2023-11-26 15:02:17', NULL),
-(4, 'otro', 'otro', 20, 'xl', NULL, 200, '2023-11-26 15:09:27', NULL),
-(5, 'otro', 'otro', 20, 'xl', NULL, 200, '2023-11-26 15:12:08', NULL),
-(6, 'adfasdf', 'sdfsdf', 123, 'sdf', NULL, 123, '2023-11-26 15:13:15', NULL),
-(7, 'adfasdf', 'sdfsdf', 123, 'sdf', NULL, 123, '2023-11-26 15:15:20', NULL),
-(8, 'hdfgjo', 'sdfvjo', 123, '123', NULL, 123, '2023-11-26 15:20:25', NULL),
-(9, 'hdfgjo', 'sdfvjo', 123, '123', NULL, 123, '2023-11-26 15:24:26', NULL),
-(10, 'hdfgjo', 'sdfvjo', 123, '123', NULL, 123, '2023-11-26 15:25:02', NULL),
-(11, 'hdfgjo', 'sdfvjo', 123, '123', NULL, 123, '2023-11-26 15:26:59', NULL),
-(12, 'hdfgjo', 'sdfvjo', 123, '123', NULL, 123, '2023-11-26 15:28:37', NULL),
-(13, 'hdfgjo', 'sdfvjo', 123, '123', '../../images/productos/13/2016_04_24_skin_201604241119404361', 123, '2023-11-26 15:32:35', NULL);
+(1, 'Sweater', 'Sweaters', 6000, 'S', '../../images/productos/1/sweater1.jpg', 20, '2023-11-26 14:40:58', NULL),
+(2, 'Pantalon', 'Pantalones', 4700, 'S', '../../images/productos/2/pantalon1.jpg', 9, '2023-11-26 15:00:11', NULL),
+(3, 'Sweater', 'Sweaters', 8000, 'XS', '../../images/productos/3/sweater1.jpg', 8, '2023-11-26 15:02:17', NULL),
+(4, 'Vestido verano', 'Vestidos', 10000, 'M', '../../images/productos/4/vestido1.jpg', 10, '2023-11-26 15:09:27', NULL),
+(5, 'Blusa', 'Blusa', 7700, 'L', '../../images/productos/5/blusa1.jpg', 10, '2023-11-26 15:12:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -106,7 +112,7 @@ INSERT INTO `productos` (`id`, `nombre`, `categoria`, `precio`, `talle`, `imagen
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `rol` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -134,7 +140,7 @@ CREATE TABLE `usuarios` (
   `direccion` varchar(50) NOT NULL,
   `fecha_alta` datetime(5) NOT NULL DEFAULT current_timestamp(5),
   `fecha_baja` datetime(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -185,13 +191,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
